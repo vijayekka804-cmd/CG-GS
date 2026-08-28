@@ -17,8 +17,8 @@ android {
         applicationId = "com.cg.gs.app"
         minSdk = 24
         targetSdk = 36
-        versionCode = 7
-        versionName = "1.6"
+        versionCode = 8
+        versionName = "1.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -93,7 +93,6 @@ googleServices {
     missingGoogleServicesStrategy = MissingGoogleServicesStrategy.WARN
 }
 
-// Some unused dependencies are commented out below instead of being removed.
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
 

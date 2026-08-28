@@ -1,0 +1,6 @@
+{
+  "name": "CG GS",
+  "description": "Chhattisgarh General Studies (CG GS) - Exam preparation app for CGPSC, CG Vyapam and Chhattisgarh competitive exams.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -32,6 +32,14 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper --gradle-version 9.3.1
+
+      - name: Make Gradle Wrapper executable
+        run: chmod +x ./gradlew
 
       - name: Restore signing keystore
         shell: bash
@@ -51,16 +59,13 @@ jobs:
 
           echo "Keystore verification successful."
 
-      - name: Make Gradle executable
-        run: chmod +x ./gradlew
-
       - name: Build signed release AAB
         shell: bash
         run: |
           export KEYSTORE_PATH="$RUNNER_TEMP/cg-gs-upload-key.jks"
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease --no-daemon --stacktrace
 
-      - name: Upload AAB
+      - name: Upload signed AAB
         uses: actions/upload-artifact@v4
         with:
           name: cg-gs-release-aab
